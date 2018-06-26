@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import Fighter from './Fighter.js';
 
 class SingleFighter extends Component {
 	constructor(props){
@@ -10,7 +11,6 @@ class SingleFighter extends Component {
 
 		this.onSubmit = this.onSubmit.bind(this);
 		this.searchFighters = this.searchFighters.bind(this);
-		this.getFighterImage = this.getFighterImage.bind(this);
 	}
 	componentDidMount(){
 		// const fighter = this.props.location.query;
@@ -29,6 +29,7 @@ class SingleFighter extends Component {
 		})
 	}
 	onSubmit(e){
+		console.log(this.props.homepage)
 		e.preventDefault();
 		const fighter = { fighter: {
 			full_name: this.state.fighter.full_name,
@@ -44,37 +45,24 @@ class SingleFighter extends Component {
 			draws: this.state.fighter.draws,
 			user_id: this.props.user.id
 		}}
-
-		console.log(fighter);
-		axios.post(`${this.props.url}/fighters_saves/create?auth_token=${this.props.user.token}`, fighter ).then(
-			response => {
-			console.log(response)
+		axios.post(`${this.props.url}/fighters_saves?auth_token=${this.props.user.token}`, fighter ).then(response => {
+			const res = response.data.response;
+			if(res === 'saved') { window.location.replace(`${this.props.homepage}/fighters_saved`); }
 		}).catch(error => {
-			console.log(error)
+			console.log(error);
 		})
-	}
-	getFighterImage() {
-		if(this.state.fighter.title_holder) {
-			return this.state.fighter.belt_thumbnail;
-		}
-		else {
-			return this.state.fighter.image;
-		}
 	}
 	render() {
 		return(
+			<div>
+			<h1> Fighter Info </h1>
       <div className="fighter">
-					<h3>{ this.state.fighter.full_name }</h3>
-					<img src={ this.getFighterImage()	} alt={ this.state.fighter.full_name } />
-					<ul>
-						<li>Status: { this.state.fighter.status } </li>
-						<li> Weight Class: {this.state.fighter.weight_class} </li>
-						<li>{this.state.fighter.wins} WINS / {this.state.fighter.losses} LOSSES / {this.state.fighter.draws} DRAWS </li>
-					</ul>
+					<Fighter fighter={ this.state.fighter } />
 					<form onSubmit={this.onSubmit}>
 						<input type='submit' value='Save Fighter' />
 					</form>
       </div>
+			</div>
 		);
 	}
 }

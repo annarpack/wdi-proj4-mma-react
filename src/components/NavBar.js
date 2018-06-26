@@ -8,23 +8,23 @@ class NavBar extends Component {
 	render() {
 		return(
         <nav>
-				<ul>
-					<li className="logo"><img src={Logo} alt="logo" /></li>
-          <li className="box" >
-            <Link to='/fight_cards'> fight cards </Link>
-          </li>
-          <li className="box" >
-            <Link to="/fights_saved" > saved fights </Link>
-          </li>
-          <li className="box" >
-            <Link to="/fighters"> fighters  </Link>
-          </li>
-          <li className="box" >
-            <Link to="/fighters_saved"> saved fighters  </Link>
-          </li>
-          <li >
-            <button onClick={this.props.logout}>logout</button>
-          </li>
+					<ul>
+						<li className="logo"><img src={Logo} alt="logo" /></li>
+	          <li className="box" >
+	            <Link to='/fight_cards'> fight cards </Link>
+	          </li>
+	          <li className="box" >
+	            <Link to="/fights_saved" > saved fights </Link>
+	          </li>
+	          <li className="box" >
+	            <Link to="/fighters"> search fighters  </Link>
+	          </li>
+	          <li className="box" >
+	            <Link to="/fighters_saved"> saved fighters  </Link>
+	          </li>
+	          <li className="logout-button">
+	            <button onClick={this.props.logout}>logout</button>
+	          </li>
 					</ul>
         </nav>
 		);

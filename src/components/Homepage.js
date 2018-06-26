@@ -20,7 +20,7 @@ class Homepage extends Component {
 				<div className="container">
 	        <Switch>
 	          <Route exact path="/"
-	            render={() => <Redirect to="/fight-cards" />}
+	            render={() => <Redirect to="/fight_cards" />}
 	          />
 	          <Route exact path="/fight_cards" render={props => (
 	            <FightCards {...props} {...this.props} />

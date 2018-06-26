@@ -44,8 +44,7 @@ nav ul li.logo img {
   left:0;
   margin-right:30%;
 }
-nav ul li.box,
-nav ul li button {
+nav ul li.box {
   width: auto;
   background-color: white;
   border: 3px solid  #696969;
@@ -59,8 +58,7 @@ nav ul li button {
   justify-content: flex-end;
 }
 nav ul li a,
-nav ul li a:visited,
-nav ul li button {
+nav ul li a:visited {
   justify-content: space-around;
   align-items: flex-start;
   text-transform: uppercase;
@@ -73,8 +71,38 @@ nav ul li button {
   margin-left: -14px;
   margin-right: -14px;
 }
+nav ul li.logout-button {
+  background-color: white;
+  background-color: white;
+  background-color: rgba(225,225,225,1);
+  width: auto;
+  background-color: white;
+  border: 3px solid  #696969;
+  transform: skewX(-20deg);
+  align-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  justify-content: flex-end;
+}
+nav ul li.logout-button button {
+  width: auto;
+  background-color: rgba(225,225,225,0);
+  justify-content: space-around;
+  align-items: flex-start;
+  text-transform: uppercase;
+  font-weight: 500px;
+  color: black;
+  padding: 12px;
+  text-decoration: none;
+  /* transform: skewX(60deg); */
+  border: 0px;
+  font-size: 20px;
+
+}
 nav ul li a:hover,
-nav ul li button:hover {
+nav ul li.logout-button button:hover {
   color: black;
   background-color: rgba(105,105,105,0.6);
 }
@@ -120,6 +148,7 @@ nav ul li button:hover {
   font-size: 14px;
   text-transform: uppercase;
 }
+.fighter button,
 .login-page button,
 .login-page input[type=submit] ,
 input[type=submit] {
@@ -184,10 +213,12 @@ label.search-form
 ul.search-list {
   list-style: none;
   align-items: flex-start;
-    left: 0;
+  left: 0;
   background-color: white;
-    margin: 0;
+  margin: 0;
+  font-size: 18px;
 }
+li.list-item,
 li.list-item a{
   color: #000;
   text-decoration: none;
@@ -203,4 +234,16 @@ li.list-item a{
 
 .fighter ul li {
   list-style: none;
+}
+.fighter h3 {
+  margin: 0 auto;
+  width: 90%;
+  background-color: transparent;
+  font-size: 1.5em;
+}
+
+
+/* Calendar */
+.FightCards {
+  height: 960px;
 }

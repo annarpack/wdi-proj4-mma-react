@@ -66,14 +66,13 @@ class Fighters extends Component {
 					<input type='submit' value='Search' />
 						<div className='fighter-search-results'>
 						<ul className='search-list'>
-
 					{this.state.searchResults.map((f, i) =>
-						<li className='list-item'><Link to={{
+						<li className='list-item' key={i} ><Link to={{
 							pathname: `fighters/${f.first_name}-${f.last_name}`,
-						 	query: f }}
-							key={i}>
+						 	query: f }} >
 							{f.full_name}
-							</Link></li> )}
+							</Link></li>
+					)}
 							</ul>
 							</div>
 				</form>

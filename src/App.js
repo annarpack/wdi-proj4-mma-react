@@ -18,7 +18,7 @@ class App extends Component {
       // url for the API we are using - uncomment the one you want to use
 
       url: 'http://localhost:3001',
-
+      homepage: 'http://localhost:3000'
     }
   }
 
@@ -88,7 +88,7 @@ class App extends Component {
       return (
         //<Content logout={this.logout.bind(this)} user={this.state.user} />
         <BrowserRouter>
-          <Homepage logout={this.logout.bind(this)} user={this.state.user}  url={this.state.url} />
+          <Homepage logout={this.logout.bind(this)} user={this.state.user}  url={this.state.url} homepage={this.state.homepage} />
         </BrowserRouter>
       )
     }
