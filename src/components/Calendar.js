@@ -10,10 +10,10 @@ class Calendar extends Component {
   constructor(props){
     super(props);
     this.state = {
-      "monthName": '',
-      "monthNum": '',
-      "days": '',
-      "start": ''
+      monthName: '',
+      monthNum: '',
+      days: '',
+      start: ''
     }
     this.getToday = this.getToday.bind(this);
     this.getStartDate = this.getStartDate.bind(this);
@@ -48,10 +48,10 @@ class Calendar extends Component {
         start = start.day();
      //console.log('startDay in getStartDate', startDay)
      this.setState({
-       "monthName": monthName,
-       "monthNum": month,
-       "days": days,
-       "start": start
+       monthName: monthName,
+       monthNum: month,
+       days: days,
+       start: start
      })
   }
   clickNextMonth(){
@@ -75,7 +75,6 @@ class Calendar extends Component {
     let monthObj = moment().month(m);
     //console.log('monthObj in clickNextMonth', monthObj)
     this.getStartDate(monthObj);
-
   }
 
   render(){
@@ -86,6 +85,7 @@ class Calendar extends Component {
               startDay={this.state.start}
               clickPrevMonth={this.clickPrevMonth}
               clickNextMonth={this.clickNextMonth}
+              fightCards={this.props.fightCards}
               />
       </div>
     );
