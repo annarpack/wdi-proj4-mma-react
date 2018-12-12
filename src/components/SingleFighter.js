@@ -20,8 +20,10 @@ class SingleFighter extends Component {
 		this.searchFighters();
 	}
 	searchFighters(){
+		//## get params and split into searchable names
 		const params = this.props.match.params.name;
 		const query = params.split('-')[1];
+		//## search for figher in UFC database
 		axios.get(`${this.props.url}/fighters/results?auth_token=${this.props.user.token}&search=${query}`).then(response => {
 			this.setState({
 				fighter: response.data.results[0]
@@ -31,6 +33,7 @@ class SingleFighter extends Component {
 	onSubmit(e){
 		console.log(this.props.homepage)
 		e.preventDefault();
+		//## parse out fighter data
 		const fighter = { fighter: {
 			full_name: this.state.fighter.full_name,
 			first_name: this.state.fighter.first_name,
@@ -45,6 +48,7 @@ class SingleFighter extends Component {
 			draws: this.state.fighter.draws,
 			user_id: this.props.user.id
 		}}
+		//## use post request to save fighter to database 
 		axios.post(`${this.props.url}/fighters_saves?auth_token=${this.props.user.token}`, fighter ).then(response => {
 			const res = response.data.response;
 			if(res === 'saved') { window.location.replace(`${this.props.homepage}/fighters_saved`); }

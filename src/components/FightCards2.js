@@ -25,7 +25,7 @@ class FightCards extends Component {
 		this.searchFightCards();
 	}
 	searchFightCards(){
-		//console.log('bullshit')
+		//## get the fight card events for the particular date
 		//let todaysDate = new Date();
 		//console.log(todaysDate)
 		axios.get(`${this.props.url}/fight_cards/search?auth_token=${this.props.user.token}`).then(response => {
@@ -37,6 +37,7 @@ class FightCards extends Component {
 		})
 	}
 	getStartDate(){
+		//## get the event array start date
 		let startDate = new Date(this.state.date);
 		let monthEvents = this.state.fightCards;
 		monthEvents = monthEvents.slice(0, 30);
@@ -56,6 +57,7 @@ class FightCards extends Component {
 
 	}
 	updateStartDate(){
+		//## change the start date of the event array or object 
 
 	}
 

@@ -9,14 +9,21 @@ class Fighter extends Component {
     this.getWeightClass = this.getWeightClass.bind(this);
 	}
   getFighterImage(f) {
+		//## get the image for the fighter
 		if(f.title_holder) {
+			//## if the figher has a winning title and belt picture,
+			//## get the picture of them with their belt
 			return f.belt_thumbnail;
 		}
 		else {
+			//## if the fighter does not have a belt picture,
+			//## get their regular image
 			return f.image;
 		}
 	}
 	getWeightClass(f) {
+		//## get the figher's weight class
+		//## if the weight class is displayed with an underscore, change the format 
 		if(f.weight_class === 'Women_Strawweight') {
 			return 'Womens Straw Weight';
 		}

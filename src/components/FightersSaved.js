@@ -17,6 +17,7 @@ class FightersSaved extends Component {
 		window.setTimeout( () => {}, 100)
 	}
 	getFighters(){
+		//## get saved fighters
 		let fightersArr = [];
 		axios.get(`${this.props.url}/fighters_saves?auth_token=${this.props.user.token}`).then(response => {
 			let item = response.data.fighters.map(f => {
@@ -29,6 +30,8 @@ class FightersSaved extends Component {
 			//this.setState({ fighters: fightersArr })
 	}
 	fighterDelete(e) {
+		//## delete a fighter from your saved fighters
+		//## note: does not delete fighter from UFC database (obviously)
 		const id = e.target.getAttribute('id');
 		axios.delete(`${this.props.url}/fighters_saves/${id}?auth_token=${this.props.user.token}`).then(response => {
 			const res = response.data.response;
@@ -36,6 +39,7 @@ class FightersSaved extends Component {
 		}).catch(error => { console.log(error) })
 	}
 	messagePrint() {
+		//## print out error message if no fighters are in database
 		window.setTimeout( () => {}, 100)
 		if(this.state.fighters.length === 0 ) {
 			const message = `There are no saved fighters in the database`;

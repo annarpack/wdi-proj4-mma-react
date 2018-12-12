@@ -22,6 +22,7 @@ class Calendar extends Component {
 
   }
   componentDidMount(){
+    //## get todays date to start calendar 
     let today = this.getToday();
     this.getStartDate(today);
   }

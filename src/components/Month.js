@@ -43,6 +43,7 @@ class Month extends Component {
 
   }
   getWeekTitleBar(){
+    //## get top title bar that includes week names
     const days = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
     const weekTitle = React.createElement(
       'div',
@@ -56,6 +57,7 @@ class Month extends Component {
       );
     })
   }
+  //## display title bar with month names
   // getMonthName(m){
   //   let monthName = m.monthName;
   //   return monthName;
@@ -79,6 +81,7 @@ class Month extends Component {
     return weekArr;
   }
   getDayCells(week, events){
+    //## get day objects and display them in a month calendar format
     const dayCells = week.map(day => {
       console.log('events', events);
       console.log('day', day)
@@ -126,6 +129,7 @@ class Month extends Component {
     return weekRowItems;
   }
   getFightEvents(m, d, e){
+    //## get the fight events, then display them in the calendar
     // console.log('m in getFightEvents', m)
     // console.log('d in getFightEvents', d)
     let today = new Date;
@@ -162,6 +166,7 @@ class Month extends Component {
     return monthEvents;
   }
   getMonthDays(){
+    //## get the number of day objects in the month
     //console.log('start in getMonthDays', start);
     let monthName = this.props.monthName;
     //console.log('monthName in getMonthDays', monthName)
@@ -198,6 +203,7 @@ class Month extends Component {
   }
 
   getMonthGrid(events){
+    //## turn the day objects into a month grid display to look like a calendar 
     const monArr = this.getMonthDays();
     const monthGrid = this.getWeekRow(monArr, events);
     return monthGrid;

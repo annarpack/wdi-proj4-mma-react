@@ -8,7 +8,7 @@ class Autocomplete extends Component {
 
     this.onClick = this.onClick.bind(this);
   }
-  // clicking a result submits a search for it
+  //## clicking a result submits a search for it
   onClick(event) {
     const fighterId = event.target.dataset.placeid;
     const fighter = event.target.dataset.text;

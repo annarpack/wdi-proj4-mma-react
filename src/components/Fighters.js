@@ -13,6 +13,7 @@ class Fighters extends Component {
 		//this.searchFighters();
 	}
 	searchFighters(){
+		//## search fighters listed in UFC database
 		axios.get(`${this.props.url}/fighters/search?auth_token=${this.props.user.token}`).then(response => {
 			console.log(response);
 			this.setState({

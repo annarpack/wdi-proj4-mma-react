@@ -24,6 +24,7 @@ class Fighters extends Component {
 
 	}
 	searchFighters(){
+		//## take inputed parmas and search for a UFC fighter
 		axios.get(`${this.props.url}/fighters/search?auth_token=${this.props.user.token}`).then(response => {
 			this.setState({
 				fighters: response.data
@@ -32,8 +33,10 @@ class Fighters extends Component {
 	}
 	searchQueryValue(query){
 		if(query.length === 0) {
+			//## if the search bar includes nothing, reset search
 			this.setState({ searchResults: [] });
 		} else {
+			//## take inputed parmas and search for UFC fighter
 			axios.get(`${this.props.url}/fighters/results?auth_token=${this.props.user.token}&search=${query}`).then(response => {
 				this.setState({
 					searchResults: response.data.results
@@ -42,14 +45,17 @@ class Fighters extends Component {
 		}
 	}
 	updateInput(value){
+		//## updated seach input
 		this.setState({ queryValue: value });
 	}
 	handleQueryChange(e){
 		e.preventDefault();
+		//## set the current state to include the serach results
 		this.setState({ queryValue: e.target.value });
 		this.searchQueryValue(e.target.value);
 	}
 	onSubmit(e) {
+		//## when the submit button is pressed
 		e.preventDefault();
     this.searchQueryValue(this.state.queryValue);
 	}

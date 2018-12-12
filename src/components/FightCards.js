@@ -18,9 +18,7 @@ class FightCards extends Component {
 		this.searchFightCards();
 	}
 	searchFightCards(){
-		//console.log('bullshit')
-		//let todaysDate = new Date();
-		//console.log(todaysDate)
+		//## search for fight event cards
 		axios.get(`${this.props.url}/fight_cards/search?auth_token=${this.props.user.token}`).then(response => {
 			console.log('response data', response.data)
 			this.setState({
